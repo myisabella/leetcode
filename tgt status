@@ -1,0 +1,24 @@
+[33mcommit 70a9c0fcabc19ab9d8d5e4297f75329b9b5adbfc[m
+Author: Xiaomin Wei <weixiaomin.seu@gmail.com>
+Date:   Tue Apr 16 18:42:29 2013 -0400
+
+    add remove duplicate from sorted list II
+
+[33mcommit e461fd7c5be4a8a576e357a2411a7b8c912d1181[m
+Merge: 0568bcd ff9dc62
+Author: Xiaomin Wei <weixiaomin.seu@gmail.com>
+Date:   Tue Apr 16 18:30:52 2013 -0400
+
+    Merge branch 'master' of github.com:myisabella/leetcode
+
+[33mcommit ff9dc6243d97b7ac31bbc017a02d5d6a7760d09d[m
+Author: myisabella <weixiaomin.seu@gmail.com>
+Date:   Tue Apr 16 15:21:50 2013 -0700
+
+    Initial commit
+
+[33mcommit 0568bcd1be6992dab8691cfae7cc636a7544655c[m
+Author: Xiaomin Wei <weixiaomin.seu@gmail.com>
+Date:   Tue Apr 16 18:20:47 2013 -0400
+
+    initial commit
