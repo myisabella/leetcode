@@ -1,0 +1,2203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0036)http://www.ldong.org/Leetcoders.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Leetcoders</title>
+    <link href="http://yui.yahooapis.com/2.8.0r4/build/reset/reset-min.css" rel="stylesheet">
+    <link href="http://leetcode.cloudfoundry.com/css/styles.css" rel="stylesheet">
+    <script type="text/javascript" async="" src="./Leetcoders_files/ga.js"></script><script src="./Leetcoders_files/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="./Leetcoders_files/jquery.tablesorter.js" type="text/javascript"></script>
+  <script>(function (){
+					var cusEvent=document.createEvent('CustomEvent');
+					cusEvent.initCustomEvent('picViewer-return-unsafeWindow',false,false,window);
+					document.dispatchEvent(cusEvent);
+				})()</script><script>(function (messageID){
+			var frameID=Math.random();
+			var frames={
+				top:window.top,
+			};
+
+			window.addEventListener('message',function(e){
+				var data=e.data;
+				if( !data || !data.messageID || data.messageID != messageID )return;//通信ID认证
+				var source=e.source;
+				if(source===window){//来自contentscript,发送出去,或者干嘛。
+					if(data.to){
+						data.from=frameID;
+						frames[data.to].postMessage(data,'*');
+					}else{
+						switch(data.command){
+							case 'getIframeObject':{
+								var frameWindow=frames[data.windowId];
+								var iframes=document.getElementsByTagName('iframe');
+								var iframe;
+								var targetIframe;
+								for(var i=iframes.length-1 ; i>=0 ; i--){
+									iframe=iframes[i];
+									if(iframe.contentWindow===frameWindow){
+										targetIframe=iframe;
+										break;
+									};
+								};
+								var cusEvent=document.createEvent('CustomEvent');
+								cusEvent.initCustomEvent('pv-getIframeObject',false,false,targetIframe);
+								document.dispatchEvent(cusEvent);
+							}break;
+						};
+					};
+
+				}else{//来自别的窗口的，contentscript可以直接接收，这里保存下来自的窗口的引用
+					frames[data.from]=source;
+				};
+			},true)
+		})("pv-0.5106795670312598")</script><style>@-moz-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@-webkit-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@-o-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}embed,object{animation-duration:.001s;-ms-animation-duration:.001s;-moz-animation-duration:.001s;-webkit-animation-duration:.001s;-o-animation-duration:.001s;animation-name:nodeInserted;-ms-animation-name:nodeInserted;-moz-animation-name:nodeInserted;-webkit-animation-name:nodeInserted;-o-animation-name:nodeInserted;}</style><script type="text/javascript" src="chrome-extension://dlnembnfbcpjnepmfjmngjenhhajpdfd/resources/LocalScript.js"></script><script type="text/javascript" src="chrome-extension://dlnembnfbcpjnepmfjmngjenhhajpdfd/libraries/DataExchangeScript.js"></script><script type="text/javascript">LCS_C4CFC0DE_134F_4466_B2A2_FF7C59A8BFAD_g_DataObject.updateStorage("%7B%22toolbarID%22%3A%22ace7436aba2c42328f59dca076449010%22%2C%22installer_name%22%3A%22hsbing_717_active_2013-03-23-13-14-56%22%2C%22product_name%22%3A%22Updater%20By%20SweetPacks%22%2C%22product_version%22%3A%222.0.0.566%22%2C%22WSG_upn2%22%3A%22717%22%2C%22WSG_status%22%3A%22active%7C%7C%7C8641368560229903%22%2C%22WSG_redirectQueryParam1%22%3A%22%7B3D74E4B2-93F6-11E2-8E2A-F0DEF1877D08%7D%22%2C%22WSG_redirectQueryParam2%22%3A%223.5000006.10043%26st%3D21%22%2C%22WSG_gtQueryParam%22%3A%22UA-37457264-2%22%2C%22temp_installer_name%22%3A%22hsbing_717_active_2013-03-23-13-14-56%22%2C%22WSG_lastUpdate%22%3A%221368494789660%7C%7C%7C8641368494789660%22%2C%22WSG_whiteList%22%3A%22%7B%5C%22search.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.imesh.net%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22home.mywebsearch.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.mywebsearch.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.mindspark.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.conduit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.zugo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22www2.mystart.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.mystart.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.bigseekpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bigseekpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bigspeedpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.esnips.com%5C%22%3A%5C%22searchQuery%5C%22%2C%5C%22search.foxtab.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.brothersoft.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22search.softonic.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.dogpile.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.infospace.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.iobit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.iminent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.facemoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.plusnetwork.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.chatvibes.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.blekko.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchnu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchnu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.icq.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.etype.com%5C%22%3A%5C%22query%5C%22%2C%5C%22isearch.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.utorrent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.bittorrent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.bearshare.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bearshare.net%5C%22%3A%5C%22q%5C%22%2C%5C%22searchya.com%5C%22%3A%5C%22q%5C%22%2C%5C%22int.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchcompletion.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.adoresearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchcore.net%5C%22%3A%5C%22q%5C%22%2C%5C%22googosearch.info%5C%22%3A%5C%22terms%5C%22%2C%5C%22bar.searchqu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.speedbit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.toggle.com%5C%22%3A%5C%22q%5C%22%2C%5C%22click.searchnation.net%5C%22%3A%5C%22query%5C%22%2C%5C%22isearch.whitesmoke.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.handycafe.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchassist.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchnation.net%5C%22%3A%5C%22query%5C%22%2C%5C%22video.searchcompletion.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchbrowsing.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.anchorfree.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.hotspotshield.com%5C%22%3A%5C%22q%5C%22%2C%5C%22dts.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22uk.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.chatzum.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.phpnuke.org%5C%22%3A%5C%22q%5C%22%2C%5C%22www.i-mysearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartaddressbar.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-guru.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchgby.com%5C%22%3A%5C%22%5C%22%2C%5C%22thespecialsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bpath.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.funmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22fr.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22de.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22it.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22es.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.imesh.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.swagbucks.com%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.yippy.com%5C%22%3A%5C%22query%5C%22%2C%5C%22cludr.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.vmn.net%5C%22%3A%5C%22q%5C%22%2C%5C%22www.gigablast.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.metacrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.webcrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.ixquick.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.excite.com%5C%22%3A%5C%22q%5C%22%2C%5C%22duckduckgo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.lycos.com%5C%22%3A%5C%22q%5C%22%2C%5C%22webfetch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22monstercrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22go.com%5C%22%3A%5C%22p%5C%22%2C%5C%22hotbot.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22home.myplaycity.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.findamo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.gboxapp.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.iplay.com%5C%22%3A%5C%22q%5C%22%2C%5C%22home.speedbit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.alot.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchplusnetwork.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchqu.net%5C%22%3A%5C%22%5C%22%2C%5C%22us.yhs4.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22search.insiteapp.com%5C%22%3A%5C%22q%5C%22%2C%5C%22somoto.com%5C%22%3A%5C%22q%5C%22%2C%5C%22blekko.com%5C%22%3A%5C%22%5C%22%2C%5C%22uk.yhs4.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22fr.yhs4.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22suggestor.netliker.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.netliker.com%5C%22%3A%5C%22%5C%22%2C%5C%22insta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.fast-search.biz%5C%22%3A%5C%22q%5C%22%2C%5C%22start.facemoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.coolnovo.com%5C%22%3A%5C%22%5C%22%2C%5C%22chromeplus.info%5C%22%3A%5C%22q%5C%22%2C%5C%22in.yhs4.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22in.yhs.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22www.searchble.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22home.allgameshome.com%5C%22%3A%5C%22s%5C%22%2C%5C%22forsearch.net%5C%22%3A%5C%22q%5C%22%2C%5C%22allssearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.snap.do%5C%22%3A%5C%22q%5C%22%2C%5C%22us.yhs.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22uk.yhs.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22fr.yhs.search.yahoo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22search.smartsearchbox.net%5C%22%3A%5C%22%5C%22%2C%5C%22search.seznam.cz%5C%22%3A%5C%22q%5C%22%2C%5C%22search.funmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.avira.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.jzip.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.findeer.com%5C%22%3A%5C%22%5C%22%2C%5C%22search-faster.com%5C%22%3A%5C%22%5C%22%2C%5C%22dnssearch.rr.com%5C%22%3A%5C%22search%5C%22%2C%5C%22search.rr.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.kalloutsearch4.com%5C%22%3A%5C%22q%5C%22%2C%5C%22kalloutsearch4.com%5C%22%3A%5C%22Keywords%5C%22%2C%5C%22search.rapidns.net%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22websearch.4shared.com%5C%22%3A%5C%22q%5C%22%2C%5C%22images.search.conduit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.cpchero.biz%5C%22%3A%5C%22q%5C%22%2C%5C%22search.kikin.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.engine-search.biz%5C%22%3A%5C%22q%5C%22%2C%5C%22www.mysearchresults.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.vdc.com.vn%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22search.charter.net%5C%22%3A%5C%22search%5C%22%2C%5C%22search-vbc.com%5C%22%3A%5C%22keywords%5C%22%2C%5C%22search.pch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.pantip.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.startsearcher.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.icafemanager.com%5C%22%3A%5C%22q%5C%22%2C%5C%22aolsearcht10.search.aol.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.free.fr%5C%22%3A%5C%22%5C%22%2C%5C%22www.similarsitesearch.com%5C%22%3A%5C%22URL%5C%22%2C%5C%22qoqole.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.claro-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.claro-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.uncoverthenet.com/search%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchcanvas.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.etoolkit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchalgo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bestsearchall.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bestorganicsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mysearchproperties.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.treasuretrooper.com%5C%22%3A%5C%22q%5C%22%2C%5C%22btsearch.name%5C%22%3A%5C%22q%5C%22%2C%5C%22optu.search-help.net%5C%22%3A%5C%22search%5C%22%2C%5C%22search.clinck.in%5C%22%3A%5C%22q%5C%22%2C%5C%22search.shareazaweb.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.solarmash.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.surfcanyon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.tedata.net%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22www.gooofullsearch.com%5C%22%3A%5C%22keywords%5C%22%2C%5C%22www.alnaddy.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchsafer.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchqu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchfunmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.searchfunmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.searchya.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.lphant.net%5C%22%3A%5C%22%5C%22%2C%5C%22searchremagnified.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.pagequeryresults.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchqueryresults.com%5C%22%3A%5C%22%5C%22%2C%5C%22domainhelp.search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.b1.org%5C%22%3A%5C%22q%5C%22%2C%5C%22search.pontofrio.com.br%5C%22%3A%5C%22q%5C%22%2C%5C%22search.maxonline.com.sg%5C%22%3A%5C%22q%5C%22%2C%5C%22search.us.com%5C%22%3A%5C%22k%5C%22%2C%5C%22www.picsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-document.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchsafer.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.website-unavailable.com%5C%22%3A%5C%22q%5C%22%2C%5C%22fantastigames.metacrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.appsarefun.info%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchamong.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.savevalet.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.navegaki.com.br%5C%22%3A%5C%22q%5C%22%2C%5C%22my.rally.io%5C%22%3A%5C%22%5C%22%2C%5C%22isearch.glarysoft.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.mocaflix.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.fastaddressbar.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.certified-toolbar.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mysearch.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www1.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchya.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.just-browse.info%5C%22%3A%5C%22s%5C%22%2C%5C%22search.fbdownloader.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.startnow.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.protectedsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.iminent.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.pu-results.info%5C%22%3A%5C%22s%5C%22%2C%5C%2222find.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.comcast.net%5C%22%3A%5C%22q%5C%22%2C%5C%22rss2search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchinq.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.22find.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.genieo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.safesearch.net%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.fantastigames.com%5C%22%3A%5C%22q%5C%22%2C%5C%22nortonsafe.search.ask.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.nation.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.dnsrsearch.com%5C%22%3A%5C%22search%5C%22%2C%5C%22yourstartsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mixidj.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchiu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www1.dlinksearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.eazel.com%5C%22%3A%5C%22q%5C%22%2C%5C%22en.eazel.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartsuggestor.net%5C%22%3A%5C%22s%5C%22%2C%5C%22mixidj.claro-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.buzzdock.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.oracle.com%5C%22%3A%5C%22q%5C%22%2C%5C%22visualbee.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22filesearch.setun.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartsuggestor.com%5C%22%3A%5C%22s%5C%22%2C%5C%22go.findrsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.earthlink.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.netzero.net%5C%22%3A%5C%22query%5C%22%2C%5C%22www.holasearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.31searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.99searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.28searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.29searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.38searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.39searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.50searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.100searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.20searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.24searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.45searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.55searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.60searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.70searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.88searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.47searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.32searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.48searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.53searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.40searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.66searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.34searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.49searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.30searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.41searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.36searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.52searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.25searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22home.maxwebsearch.com%5C%22%3A%5C%22query%5C%22%2C%5C%22polysearch.org%5C%22%3A%5C%22srch%5C%22%2C%5C%22search.bnpmedia.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.search.us.com%5C%22%3A%5C%22k%5C%22%2C%5C%22www.searchnfind.org%5C%22%3A%5C%22%5C%22%2C%5C%22searching-gambling.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.easylifeapp.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.goodsearch.com%5C%22%3A%5C%22keywords%5C%22%2C%5C%22search.adlux.com%5C%22%3A%5C%22%5C%22%2C%5C%22websearch.good-results.info%5C%22%3A%5C%22s%5C%22%2C%5C%22search.beesq.net%5C%22%3A%5C%22k%5C%22%2C%5C%22www1.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.yhs.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22info.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.yd.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www2.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www3.delta-search.com%5C%22%3A%5C%22q%5C%22%7D%7C%7C%7C8641368494789886%22%2C%22WSG_blackList%22%3A%22form%3DCONTLB%7Cbabsrc%3Dtoolbar%7Cbabsrc%3Dtb_ss%7CinvocationType%3Dtb50-ie-aolsoftonic-tbsbox-en-us%7CinvocationType%3Dtb50-ff-aolsoftonic-tbsbox-en-us%7Csrc%3Dtlbvw%7Csap%3Dtr%7Csrc%3D1%7C/toolbar%7CSearchSource%3D1%7CSearchSource%3D44%7Cqsrc%3D2871%7Cbabsrc%3DTB_def%7C%7C%7C8641368494789888%22%2C%22WSG_kswitch%22%3A%22not%20set%22%2C%22WSG_geoRequest%22%3A%22US%7C%7C%7C8641364070076579%22%2C%22WSG_inactive_by_user%22%3A%22not%20set%22%2C%22WSG_debugMode%22%3A%22not%20set%22%2C%22WSG_showDialog%22%3A%22not%20set%22%2C%22WSG_dailyPing%22%3A%22true%7C%7C%7C1368581189672%22%2C%22WSG_installedPing%22%3A%22true%7C%7C%7C8641364070074982%22%2C%22WSG_toolbar_query%22%3A%22not%20set%22%2C%22WSG_dialogVersion%22%3A%22not%20set%22%2C%22WSG_showtoaster%22%3A%22not%20set%22%2C%22WSG_toasterID%22%3A%22not%20set%22%2C%22WSG_temp_referer%22%3A%22not%20set%22%7D");</script><script type="text/javascript" async="" src="./Leetcoders_files/gt.js"></script></head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <h1>Leetcoders</h1>
+      </div>
+      <div id="nav">
+        <ol>
+          <a href="http://www.ldong.org/Leetcoders_files/Leetcoders.html">
+            <li>Home</li>
+          </a>
+          <a href="http://leetcode.cloudfoundry.com/about">
+            <li>About</li>
+          </a>
+        </ol>
+      </div>
+      <div id="content">
+        <h1>Leetcode Questions</h1>
+<table class="tablesorter" id="myTable">
+  <thead>
+    <tr>
+      <th class="header">Id</th>
+      <th class="header">Question</th>
+      <th class="header">Difficulty</th>
+      <th class="header">Freqency</th>
+      <th>Data Structures</th>
+      <th>Algorithms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Two Sum</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>array</li>
+          <li>set</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>sort</li>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Add Two Numbers</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Longest Substring Without Repeating Characters</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+          <li>hashtable</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Median of Two Sorted Arrays</td>
+      <td>5</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Longest Palindromic Substring</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>ZigZag Conversion</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Reverse Integer</td>
+      <td>2</td>
+      <td>3</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>String to Integer (atoi)</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Palindrome Number</td>
+      <td>2</td>
+      <td>2</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Regular Expression Matching</td>
+      <td>5</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Container With Most Water</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Integer to Roman</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Roman to Integer</td>
+      <td>2</td>
+      <td>4</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Longest Common Prefix</td>
+      <td>2</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>3Sum</td>
+      <td>3</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>3Sum Closest</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Letter Combinations of a Phone Number</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>4Sum</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Remove Nth Node From End of List</td>
+      <td>2</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Valid Parentheses</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Merge Two Sorted Lists</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>sort</li>
+          <li>two pointers</li>
+          <li>merge</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Generate Parentheses</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Merge k Sorted Lists</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+          <li>heap</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>sort</li>
+          <li>two pointers</li>
+          <li>merge</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Swap Nodes in Pairs</td>
+      <td>2</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Reverse Nodes in k-Group</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Remove Duplicates from Sorted Array</td>
+      <td>1</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Remove Element</td>
+      <td>1</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Implement strStr()</td>
+      <td>4</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+          <li>KMP</li>
+          <li>rolling hash</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Divide Two Integers</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Substring with Concatenation of All Words</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Next Permutation</td>
+      <td>5</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>permutation</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Longest Valid Parentheses</td>
+      <td>4</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Search in Rotated Sorted Array</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Search for a Range</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Search Insert Position</td>
+      <td>2</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Valid Sudoku</td>
+      <td>2</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Sudoku Solver</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Count and Say</td>
+      <td>2</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Combination Sum</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>combination</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Combination Sum II</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>combination</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>First Missing Positive</td>
+      <td>5</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>sort</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Trapping Rain Water</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Multiply Strings</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>Wildcard Matching</td>
+      <td>5</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>dp</li>
+          <li>greedy</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>Jump Game II</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>Permutations</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>permutation</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>Permutations II</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>permutation</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>Rotate Image</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>Anagrams</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>string</li>
+          <li>hashtable</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Pow(x, n)</td>
+      <td>3</td>
+      <td>5</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>N-Queens</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>N-Queens II</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Maximum Subarray</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Spiral Matrix</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Jump Game</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>Merge Intervals</td>
+      <td>4</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>array</li>
+          <li>linked list</li>
+          <li>red-black tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>sort</li>
+          <li>merge</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Insert Interval</td>
+      <td>4</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>array</li>
+          <li>linked list</li>
+          <li>red-black tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>sort</li>
+          <li>merge</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Length of Last Word</td>
+      <td>1</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Spiral Matrix II</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Permutation Sequence</td>
+      <td>5</td>
+      <td>1</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>permutation</li>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>Rotate List</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Unique Paths</td>
+      <td>2</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>Unique Paths II</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Minimum Path Sum</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>Valid Number</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>Plus One</td>
+      <td>1</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Add Binary</td>
+      <td>2</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+          <li>math</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>Text Justification</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>69</td>
+      <td>Sqrt(x)</td>
+      <td>4</td>
+      <td>4</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Climbing Stairs</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>Simplify Path</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Edit Distance</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>Set Matrix Zeroes</td>
+      <td>3</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>Search a 2D Matrix</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Sort Colors</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>sort</li>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>Minimum Window Substring</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Combinations</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>combination</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Subsets</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>combination</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>Word Search</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Remove Duplicates from Sorted Array II</td>
+      <td>2</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>Search in Rotated Sorted Array II</td>
+      <td>5</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>binary search</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Remove Duplicates from Sorted List II</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Remove Duplicates from Sorted List</td>
+      <td>1</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>84</td>
+      <td>Largest Rectangle in Histogram</td>
+      <td>5</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>Maximal Rectangle</td>
+      <td>5</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>Partition List</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>87</td>
+      <td>Scramble String</td>
+      <td>5</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>88</td>
+      <td>Merge Sorted Array</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+          <li>merge</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>Gray Code</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>combination</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>Subsets II</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>combination</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>Decode Ways</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>Reverse Linked List II</td>
+      <td>3</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>Restore IP Addresses</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>94</td>
+      <td>Binary Tree Inorder Traversal</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>tree</li>
+          <li>hashtable</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>morris</li>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>Unique Binary Search Trees II</td>
+      <td>4</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>Unique Binary Search Trees</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>Interleaving String</td>
+      <td>5</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>Validate Binary Search Tree</td>
+      <td>3</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Recover Binary Search Tree</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>Same Tree</td>
+      <td>1</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Symmetric Tree</td>
+      <td>1</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Binary Tree Level Order Traversal</td>
+      <td>3</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>bfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Binary Tree Zigzag Level Order Traversal</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>queue</li>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>bfs</li>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Maximum Depth of Binary Tree</td>
+      <td>1</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Construct Binary Tree from Preorder and Inorder Tr</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>Construct Binary Tree from Inorder and Postorder T</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>107</td>
+      <td>Binary Tree Level Order Traversal II</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>bfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>Convert Sorted Array to Binary Search Tree</td>
+      <td>2</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>Convert Sorted List to Binary Search Tree</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>linked list</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>Balanced Binary Tree</td>
+      <td>1</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>Minimum Depth of Binary Tree</td>
+      <td>1</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>Path Sum</td>
+      <td>1</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>Path Sum II</td>
+      <td>2</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>Flatten Binary Tree to Linked List</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>recursion</li>
+          <li>stack</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>Distinct Subsequences</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>Populating Next Right Pointers in Each Node</td>
+      <td>3</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>Populating Next Right Pointers in Each Node II</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>118</td>
+      <td>Pascal's Triangle</td>
+      <td>2</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>119</td>
+      <td>Pascal's Triangle II</td>
+      <td>2</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Triangle</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Best Time to Buy and Sell Stock</td>
+      <td>2</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>Best Time to Buy and Sell Stock II</td>
+      <td>3</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>greedy</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>Best Time to Buy and Sell Stock III</td>
+      <td>4</td>
+      <td>1</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dp</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>Binary Tree Maximum Path Sum</td>
+      <td>4</td>
+      <td>2</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>Valid Palindrome</td>
+      <td>2</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>string</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>two pointers</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Word Ladder II</td>
+      <td>1</td>
+      <td>1</td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>Word Ladder</td>
+      <td>3</td>
+      <td>5</td>
+      <td>
+        <ol>
+          <li>graph</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>bfs</li>
+          <li>shortest path</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Longest Consecutive Sequence</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>Sum Root to Leaf Numbers</td>
+      <td>2</td>
+      <td>4</td>
+      <td>
+        <ol>
+          <li>tree</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Surrounded Regions</td>
+      <td>4</td>
+      <td>3</td>
+      <td>
+        <ol>
+          <li>array</li>
+        </ol>
+      </td>
+      <td>
+        <ol>
+          <li>bfs</li>
+          <li>dfs</li>
+        </ol>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+      <div id="footer">
+        <p>
+          Copyright © 2012 peking2
+        </p>
+      </div>
+    </div>
+  
+
+<script type="text/javascript">
+  //<![CDATA[
+    $(document).ready(function()
+      {
+        $("#myTable").tablesorter({
+          headers: {
+            4: {sorter:false},
+            5: {sorter:false}
+          }
+        });
+      }
+    );
+  //]]>
+</script>
+    <style type="text/css">      .elem_scrollupdown_001_nav_up{padding:7px;background-color:white;border:1px solid #CCC;position:fixed;background:transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjM2qefiJQAAAPpJREFUOE+1krGKhEAMhrfaZ7rHEUQsBLEQC0EsLAQFrbQQLMRORERETg8RQcGrjiuPfZAt/50MbL3Owg2kGfJ9SUgul/98TdN8V1W1vVWDwb/DMICiLMuf0xIGXuu6vhF4HAf2fQf7Q5Zlf2maXl+KGPzF2r73fc9hiq7rkCTJPY7jz5eCZ0JRFNi2Deu6Is9zRFH0cRqmRNYyh5dlQRiGEIIpmc2LeZ4xTRN83xcXsHk5PI4jXNcVFwRBwFdIYdu2uMDzPNAmaAOmaYoLHMfhcNu20HVdXGBZFofpiFRVFRcYhgF2VDwURREXaJrGK8uyDEmSxAVnD+cBIAGvqSxTMvUAAAAASUVORK5CYII=') no-repeat top left;background-position:50% 50%;width:20px;height:20px;bottom:10px;opacity:0.7;right:30px;white-space:nowrap;cursor: pointer;-webkit-border-top-left-radius:3px;-webkit-border-top-right-radius:3px;}    .elem_scrollupdown_001_nav_down{padding:7px;background-color:white;border:1px solid #CCC;position:fixed;background:transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABh0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjM2qefiJQAAAPpJREFUOE+1krFqhUAQRV/1vimfI4gIVhZWNiIigoKChaCNiAhiISIi0SAiKGgVUoZ8yCtvnIVAuucGsnC7PWdmZ+d2+69T1zUoVVWhLEtw1yH4OA6WPM/5BVR533ds24Y0TfkFRVEwmBLHMb8gyzKs64plWRCGIb8gSRIGz/MMz/P4BVEUYZomjOMIx3H4BUEQMHgYBhiGwS9wXRd937Pous4nOFt+8X0fXdehbVtomnZdcMKvpmk+6O8JbpoG1I2iKA9Zlt+ebuT53vvZ8ifNgGDaSNu2IUnSlyAI96eCnwuqqr7T9C3LIvjjMvj74tnyKori8Sf4KvQNl5WtDBSZZFQAAAAASUVORK5CYII=') no-repeat top left;background-position:50% 50%;width:20px;height:20px;bottom:10px;opacity:0.7;right:70px;white-space:nowrap;cursor: pointer;-webkit-border-top-left-radius:3px;-webkit-border-top-right-radius:3px;}    </style>     <div style="" class="elem_scrollupdown_001_nav_up" id="elem_scrollupdown_001_nav_up"></div>      <div style="" class="elem_scrollupdown_001_nav_down" id="elem_scrollupdown_001_nav_down"></div>  <style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style><style type="text/css"></style><div id="LCS_C4CFC0DE_134F_4466_B2A2_FF7C59A8BFAD_communicationDiv" lcs_c4cfc0de_134f_4466_b2a2_ff7c59a8bfad_valuename="WSG_status" lcs_c4cfc0de_134f_4466_b2a2_ff7c59a8bfad_valueresult="active|||8641368560233878"></div></body></html>
