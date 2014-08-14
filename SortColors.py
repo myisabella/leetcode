@@ -23,3 +23,4 @@ class Solution:
 				continue
 
 			w = w + 1
+			
